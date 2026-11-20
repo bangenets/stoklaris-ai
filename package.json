@@ -1,0 +1,1 @@
+{"description":"StokLaris AI — on-device stock & profit assistant for Indonesian warung owners (SLAY HACKS 2026)","license":"MIT","name":"stoklaris-ai","scripts":{"serve":"python3 -m http.server 8000","test":"node tests/run-tests.js"},"version":"1.0.0"}

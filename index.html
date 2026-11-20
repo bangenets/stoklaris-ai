@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StokLaris AI — Asisten Stok &amp; Laba Warung</title>
+<meta name="description" content="Catat penjualan warung dengan kata-kata sendiri. AI memahami, menghitung stok, laba, dan memprediksi kapan barang habis. 100% gratis, tanpa akun, tanpa server.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main class="container">
+  <header class="hero">
+    <h1>📦 StokLaris <span class="ai-badge">AI</span></h1>
+    <p class="tagline">Catat dagangan pakai kata-kata sendiri. AI yang hitung stok, laba, dan kapan harus kulak lagi.</p>
+    <p class="privacy">100% gratis · Tanpa akun · Tanpa server · Datamu tidak pernah keluar dari HP ini</p>
+  </header>
+
+  <section class="card">
+    <h2>✏️ Catat transaksi</h2>
+    <p class="hint">Tulis seperti ngomong biasa. Contoh: <i>“jual kopi 5 @3000”</i> atau <i>“beli gula 2kg Rp26.000”</i>.</p>
+    <input id="input-text" type="text" placeholder="Contoh: jual kopi 5 @3000" autocomplete="off">
+    <div id="examples" class="chips"></div>
+    <div id="parse-preview" class="preview hidden"></div>
+    <button id="btn-save" class="btn primary" disabled>💾 Simpan catatan</button>
+  </section>
+
+  <section class="card">
+    <h2>📊 Hari ini</h2>
+    <div class="stats">
+      <div class="stat"><span>Omzet</span><b id="stat-revenue">—</b></div>
+      <div class="stat"><span>Laba</span><b id="stat-profit">—</b></div>
+      <div class="stat"><span>Transaksi</span><b id="stat-sales">—</b></div>
+    </div>
+    <p id="stat-unknown" class="note"></p>
+  </section>
+
+  <section class="card">
+    <h2>⚠️ Peringatan stok</h2>
+    <div id="alerts"></div>
+  </section>
+
+  <section class="card">
+    <h2>📦 Stok &amp; prakiraan</h2>
+    <p class="note">Prakiraan dihitung dari penjualan 14 hari terakhir (exponential smoothing). Saran pesan menutup kebutuhan 7 hari.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Barang</th><th>Sisa</th><th>Laku/hari</th><th>Habis</th><th>Status</th></tr></thead>
+        <tbody id="stock-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🧾 Riwayat terakhir</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Waktu</th><th>Jenis</th><th>Barang</th><th>Jumlah</th><th>Harga</th></tr></thead>
+        <tbody id="history-body"></tbody>
+      </table>
+    </div>
+    <div class="actions">
+      <button id="btn-seed" class="btn">🔄 Muat data contoh</button>
+      <button id="btn-clear" class="btn danger">🗑️ Hapus semua</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>StokLaris AI — dibuat untuk SLAY HACKS 2026. AI berjalan 100% di perangkat: parser bahasa Indonesia, klasifikasi Naive Bayes, dan prakiraan permintaan (exponential smoothing). Tidak ada data yang dikirim ke server mana pun.</p>
+  </footer>
+</main>
+<script src="js/nlp.js"></script>
+<script src="js/forecast.js"></script>
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
